@@ -4,5 +4,16 @@
   "version": "0.0.0",
   "main": "index.js",
   "author": "ryo_suga <ryo.suga.dev@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server docs/",
+    "build": "rollup"
+  },
+  "devDependencies": {
+    "rollup": "^1.6.0",
+    "rollup-plugin-node-resolve": "^4.0.1"
+  },
+  "dependencies": {
+    "lit-element": "^2.0.1"
+  }
 }
