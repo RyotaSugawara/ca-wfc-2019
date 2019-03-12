@@ -65,10 +65,7 @@ class WfcPhotoList extends LitElement {
       return;
     }
     this.loading = true;
-    let offset = this.images.length;
-    if (offset) {
-      offset += 1;
-    }
+    const offset = this.images.length;
     try {
       const {images} = await fetchImagesByOffset(offset);
       if (!images.length) {
@@ -83,7 +80,6 @@ class WfcPhotoList extends LitElement {
   }
 
   handleClick() {
-    console.info('click');
     this.fetchOffset();
   }
 
@@ -105,6 +101,7 @@ class WfcPhotoList extends LitElement {
             : this.images.map(
                 item => html`
                   <wfc-photo-item
+                    color="${item.color}"
                     title="${item.title}"
                     description="${item.description}"
                     postDatetime="${item.postDatetime}"

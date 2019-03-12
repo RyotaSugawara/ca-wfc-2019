@@ -18,6 +18,7 @@ class WfcApp extends LitElement {
         }
       }
       footer {
+        font-size: 10px;
         color: #999;
         text-align: center;
         padding-bottom: 16px;

@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
+import './wfc-photo-image.js';
 
 class WfcPhotoItem extends LitElement {
   static get styles() {
@@ -50,6 +51,7 @@ class WfcPhotoItem extends LitElement {
   static get properties() {
     return {
       url: {type: String},
+      color: {type: String},
       title: {type: String},
       description: {type: String},
       author: {type: String},
@@ -59,10 +61,13 @@ class WfcPhotoItem extends LitElement {
     };
   }
 
+  callback() {
+    console.log('callbc');
+  }
+
   getDateString() {
     const now = new Date();
     const date = new Date(this.postDatetime);
-    console.log(date);
     const diff = now - date;
     const SEC = 1000;
     const MIN = SEC * 60;
@@ -90,12 +95,14 @@ class WfcPhotoItem extends LitElement {
       <article>
         <header class="author">${this.author}</header>
         <div class="image">
-          <img
+          <wfc-photo-image
+            callback="${this.callback}"
             src="${this.url}"
             alt="${this.title}"
+            color="${this.color}"
             width="100%"
             height="${ratio}"
-          />
+          ></wfc-photo-image>
         </div>
         <div class="meta">
           <h3 class="title">${this.title}</h3>
