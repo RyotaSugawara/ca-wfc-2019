@@ -7,11 +7,12 @@
   "license": "MIT",
   "scripts": {
     "start": "http-server docs/",
-    "build": "rollup"
+    "build": "NODE_ENV=production rollup -c"
   },
   "devDependencies": {
     "rollup": "^1.6.0",
-    "rollup-plugin-node-resolve": "^4.0.1"
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-terser": "^4.0.4"
   },
   "dependencies": {
     "lit-element": "^2.0.1"

@@ -1,4 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve';
+import {terser} from 'rollup-plugin-terser';
 
 export default {
   input: 'src/wfc-app.js',
@@ -8,6 +9,7 @@ export default {
     sourcemap: true,
   },
   plugins: [
-    resolve()
-  ]
-}
+    resolve(),
+    ...(process.env.NODE_ENV === 'production' ? [terser()] : []),
+  ],
+};
